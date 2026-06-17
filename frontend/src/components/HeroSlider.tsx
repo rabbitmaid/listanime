@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 
 export default function HeroSlider() {
   return (
-    <section className="w-full h-[50vh] md:h-[40vh]">
+    <section className="w-full h-[40vh] md:h-[30vh]">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}

@@ -1,9 +1,9 @@
-import CardGrid from "@/sections/AnimeGrid";
 import HeroSlider from "@/components/HeroSlider";
 import Header from "@/sections/Header";
-
 import type { Metadata } from "next";
 import Footer from "@/sections/Footer";
+import { animes } from "@/data/animes";
+import AnimeGrid from "@/sections/AnimeGrid";
 
 export const metadata: Metadata = {
   title: "ListAnime – Track, Discover & Explore Anime",
@@ -37,7 +37,7 @@ export default function Page() {
       <Header />
       <HeroSlider />
       <section className="w-full py-10 px-5 md:py-18 md:px-20">
-        <CardGrid />
+        <AnimeGrid animes={animes} />
       </section>
       <Footer />
     </>

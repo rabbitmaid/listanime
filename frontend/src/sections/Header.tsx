@@ -11,9 +11,9 @@ export default function Header() {
               </Link>
               <SearchForm inputClass="w-full" formClass="w-full" />
               <nav className="flex items-center gap-5">
-                  <Link className="text-white font-semibold hover:text-orange-300" href="#">New</Link>
-                  <Link className="text-white font-semibold hover:text-orange-300" href="#">Popular</Link>
-                  <Link className="text-white font-semibold hover:text-orange-300" href="#">Random</Link>
+                  <Link className="text-white font-semibold hover:text-orange-300" href="/new">New</Link>
+                  <Link className="text-white font-semibold hover:text-orange-300" href="/popular">Popular</Link>
+                  <Link className="text-white font-semibold hover:text-orange-300" href="/random">Random</Link>
               </nav>
           </div>
       </header>

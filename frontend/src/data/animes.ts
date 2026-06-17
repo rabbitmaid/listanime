@@ -13,6 +13,9 @@ interface Anime {
   year: number;
   score: number;
   author: string;
+  isNew?: boolean;
+  isPopular?: boolean;
+  isTrending?: boolean;
 }
 
 export const animes: Anime[] = [
@@ -29,7 +32,10 @@ export const animes: Anime[] = [
     score: 7.4,
     author: "Hiroshi Tanaka",
     studio: "Unknown Studio",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: true,
+    isPopular: false,
+    isTrending: false
   },
   {
     id: 2,
@@ -44,7 +50,10 @@ export const animes: Anime[] = [
     score: 7.1,
     author: "Kei Mizuno",
     studio: "Studio Polon",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: true,
+    isPopular: false,
+    isTrending: false
   },
   {
     id: 3,
@@ -59,7 +68,10 @@ export const animes: Anime[] = [
     score: 8.0,
     author: "Kumo Kagyu",
     studio: "WHITE FOX",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 4,
@@ -74,7 +86,10 @@ export const animes: Anime[] = [
     score: 6.9,
     author: "Ryo Sakamoto",
     studio: "Unknown Studio",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: false,
+    isPopular: false,
+    isTrending: false
   },
   {
     id: 5,
@@ -89,7 +104,10 @@ export const animes: Anime[] = [
     score: 7.2,
     author: "Tsuyoshi Fujitaka",
     studio: "Okuruto Noboru",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: false,
+    isTrending: false
   },
   {
     id: 6,
@@ -104,7 +122,10 @@ export const animes: Anime[] = [
     score: 8.3,
     author: "Masashi Kishimoto",
     studio: "Pierrot",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 7,
@@ -119,7 +140,10 @@ export const animes: Anime[] = [
     score: 9.0,
     author: "Eiichiro Oda",
     studio: "Toei Animation",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 8,
@@ -134,7 +158,10 @@ export const animes: Anime[] = [
     score: 9.1,
     author: "Hajime Isayama",
     studio: "WIT Studio",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 9,
@@ -150,7 +177,10 @@ export const animes: Anime[] = [
     author: "Koyoharu Gotouge",
     trailer: "https://youtu.be/VQGCKyvzIM4",
     studio: "ufotable",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 10,
@@ -166,7 +196,10 @@ export const animes: Anime[] = [
     author: "Gege Akutami",
     trailer: "https://youtu.be/pkKu9hLT-t8",
     studio: "MAPPA",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 11,
@@ -181,7 +214,10 @@ export const animes: Anime[] = [
     score: 9.0,
     author: "Tsugumi Ohba",
     studio: "Madhouse",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 12,
@@ -196,7 +232,10 @@ export const animes: Anime[] = [
     score: 8.2,
     author: "Kohei Horikoshi",
     studio: "Bones",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older", 
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 13,
@@ -212,7 +251,10 @@ export const animes: Anime[] = [
     author: "Tatsuki Fujimoto",
     trailer: "https://youtu.be/l96zmDlWCBk",
     studio: "MAPPA",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)", 
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 14,
@@ -228,7 +270,10 @@ export const animes: Anime[] = [
     author: "Tite Kubo",
     trailer: "https://youtu.be/WkNcS2mG_WU",
     studio: "Pierrot",
-    rating: "PG-13 - Teens 13 or older"
+    rating: "PG-13 - Teens 13 or older",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   },
   {
     id: 15,
@@ -244,6 +289,9 @@ export const animes: Anime[] = [
     author: "Sui Ishida",
     trailer: "https://youtu.be/vGuQeQsoRgU",
     studio: "Pierrot",
-    rating: "R - 17+ (violence & profanity)"
+    rating: "R - 17+ (violence & profanity)",
+    isNew: false,
+    isPopular: true,
+    isTrending: false
   }
 ];

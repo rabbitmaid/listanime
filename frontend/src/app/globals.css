@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.tags {
+  @apply flex items-center flex-wrap gap-y-2 gap-x-2;
+  .tag {
+    @apply py-2 w-fit px-3 bg-blue-500 text-white uppercase tracking-widest font-semibold text-sm transition-all delay-75 ease-in-out;
+    
+    &:hover{
+      @apply bg-blue-950;
+    }
+  }
+}

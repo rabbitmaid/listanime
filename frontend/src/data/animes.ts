@@ -1,0 +1,249 @@
+interface Anime {
+  id: number;
+  image: string;
+  title: string;
+  slug: string;
+  synopsis: string;
+  trailer?: string;
+  studio?: string;   
+  rating?: string; 
+  description: string;
+  tags: string[];
+  episodes: number;
+  year: number;
+  score: number;
+  author: string;
+}
+
+export const animes: Anime[] = [
+  {
+    id: 1,
+    image: "https://animeheaven.me/image.php?horaf",
+    title: "The Daily Life of a Single 29-Year-Old Adventurer",
+    slug: "the-daily-life-of-a-single-29-year-old-adventurer",
+    synopsis: "Born and raised in the slums, 29-year-old adventurer Hajime Shinonome now lives a quiet life in Komai Village. But his peaceful days take a turn when he discovers Lirui, an abandoned young girl, being attacked by a slime. Moved by her desperation and reminded of his own past, he takes her back to the village. Hajime and Lirui begin a new chapter filled with unexpected challenges and gentle days!",
+    description: "A laid-back fantasy story about a solo adventurer trying to survive daily quests while dealing with unpredictable dungeon life and absurd monsters.",
+    tags: ["Fantasy", "Adventure", "Comedy"],
+    episodes: 12,
+    year: 2024,
+    score: 7.4,
+    author: "Hiroshi Tanaka",
+    studio: "Unknown Studio",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 2,
+    image: "https://animeheaven.me/image.php?z8rkx",
+    title: "The Strongest Tank’s Labyrinth Raids: A Tank with a Rare 9999 Resistance Skill Got Kicked from the Hero’s Party",
+    slug: "the-strongest-tanks-labyrinth-raids",
+    synopsis: "Rud is a tank of the Hero's Party and is said to have the highest defense ever in history. The party often does labyrinth raids, but to Rud, it means more than just a raid. To cure his beloved sister's illness, he is in search for the wish-granting treasure that might be hidden in those labyrinths. But one day, the arrogant hero kicks him from the party after an unsuccessful raid attempt, blaming it on his skills whose effects he is still unaware of. Without nowhere else to go and nothing to do, he decides to return to his hometown, where his sister is waiting. On his way there, he saves a girl who was being attacked by a monster. Unexpectedly, this girl has an extremely rare skill called 'Appraisal'. Thanks to her skill, Rud is able to discover the truth behind his unknown skills, which turn out to be very powerful skills. With a defense of 9999 and powerful skills, thus begins the adventure of the strongest tank, Rud!",
+    description: "After being kicked from his hero party, a tank with absurd defense stats explores labyrinths and discovers his true strength.",
+    tags: ["Action", "Fantasy", "Adventure"],
+    episodes: 12,
+    year: 2023,
+    score: 7.1,
+    author: "Kei Mizuno",
+    studio: "Studio Polon",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 3,
+    image: "https://animeheaven.me/image.php?pibv7",
+    title: "Goblin Slayer",
+    slug: "goblin-slayer",
+    synopsis: "Rumor has it that, in a certain guild in the middle of nowhere, there is an extraordinary man who has climbed all the way to the Silver rank just by killing goblins. At the same guild, a priestess who's just become a new adventurer has formed her first party... and the man who ends up rescuing that party when they get into trouble is none other than the Goblin Slayer.",
+    description: "A dark fantasy story following a warrior dedicated solely to exterminating goblins using brutal and tactical methods.",
+    tags: ["Dark Fantasy", "Action", "Drama"],
+    episodes: 24,
+    year: 2018,
+    score: 8.0,
+    author: "Kumo Kagyu",
+    studio: "WHITE FOX",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 4,
+    image: "https://animeheaven.me/image.php?mz34c",
+    title: "Jack-of-All-Trades, Party of None",
+    slug: "jack-of-all-trades-party-of-none",
+    synopsis: "Betrayed by his childhood friend and cast out of the Hero Party, Orhun Dura—once their loyal Enchanter—is branded by his former comrades as “a jack-of-all-trades but a master of none.” Alone, he sets out to forge a new path as a solo adventurer. His journey sparks explosive battles, deadly rivals, and unexpected allies—and he’ll rise to shatter every expectation. The ultimate solo comeback begins!",
+    description: "A rejected adventurer builds his own path after being excluded from elite parties, mastering multiple skills along the way.",
+    tags: ["Fantasy", "Adventure"],
+    episodes: 12,
+    year: 2024,
+    score: 6.9,
+    author: "Ryo Sakamoto",
+    studio: "Unknown Studio",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 5,
+    image: "https://animeheaven.me/image.php?atc87",
+    title: "My Instant Death Ability Is So Overpowered, No One in This Other World Stands a Chance Against Me!",
+    slug: "my-instant-death-ability-is-so-overpowered-no-one-in-this-other-world-stands-a-chance-against-me",
+    synopsis: "Awaking to absolute chaos and carnage while on a school trip, Yogiri Takatou discovers that everyone in his class has been transported to another world! He had somehow managed to sleep through the entire ordeal himself, missing out on the Gift — powers bestowed upon the others by a mysterious Sage who appeared to transport them. Even worse, he and another classmate were ruthlessly abandoned by their friends, left as bait to distract a nearby dragon. Although not terribly bothered by the thought of dying, he reluctantly decides to protect his lone companion. After all, a lowly Level 1000 monster doesn't stand a chance against his secret power to invoke Instant Death with a single thought! If he can stay awake long enough to bother using it, that is...",
+    description: "A high school student is transported to another world with an ability that can instantly kill anything, making survival almost too easy.",
+    tags: ["Isekai", "Action", "Fantasy"],
+    episodes: 12,
+    year: 2024,
+    score: 7.2,
+    author: "Tsuyoshi Fujitaka",
+    studio: "Okuruto Noboru",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 6,
+    image: "https://animeheaven.me/image.php?2m6y1",
+    title: "Naruto",
+    slug: "naruto",
+    synopsis: "Naruto Uzumaki is a young ninja who bears a great power hidden inside him, a power that has isolated him from the rest of his village. As such, his only dream is to become the Hokage - the most powerful ninja, and leader of the village; but first he needs to graduate! With his inability to perform even the most basic ninja techniques, it seems that all Naruto has going for him is his determination to succeed no matter what. Teamed up with the genius Sasuke, book-smart Sakura, and their team leader Kakashi, Naruto embarks on his quest to become the Hokage. But with outside forces posing a threat to the entire Hidden Leaf village, Naruto discovers that he must become much stronger if he ever wants to realize his dream and protect the friendships he's forged.",
+    description: "A young ninja strives to become the strongest leader of his village while overcoming loneliness and powerful enemies.",
+    tags: ["Action", "Adventure", "Ninja"],
+    episodes: 720,
+    year: 2002,
+    score: 8.3,
+    author: "Masashi Kishimoto",
+    studio: "Pierrot",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 7,
+    image: "https://animeheaven.me/image.php?cm785",
+    title: "One Piece",
+    slug: "one-piece",
+    synopsis: "Long ago the infamous Gol D. Roger was the strongest and most powerful pirate on the seas. As he was about to be executed he revealed that he hid all of his wealth, including the legendary treasure known as One Piece, on an island at the end of the Grand Line - a treacherous and truly unpredictable sea. Monkey D. Luffy is a spirited, energetic and somewhat dim-witted young man with a very big dream: to find One Piece and become the Pirate King! However Luffy is no ordinary boy, as when he was younger he ate one of the Devil's Fruits and gained its power to become a Rubber Man. Now in this grand age of pirates Luffy sets out to gather a crew and sail to the most dangerous sea in the world so that he can fulfill his dream... and maybe even his appetite!",
+    description: "A boy with rubber powers sails across dangerous seas with his crew to find the legendary One Piece treasure.",
+    tags: ["Adventure", "Action", "Pirates"],
+    episodes: 1100,
+    year: 1999,
+    score: 9.0,
+    author: "Eiichiro Oda",
+    studio: "Toei Animation",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 8,
+    image: "https://animeheaven.me/image.php?snab5",
+    title: "Attack on Titan",
+    slug: "attack-on-titan",
+    synopsis: "Over a century ago, mankind was devoured by giant beings of unknown intelligence and origin known as Titans – creatures that eat humans alive indiscriminately and for no apparent reason. The remaining population has managed to survive the last hundred years only by building a multi-walled city capable of keeping the Titans at bay, training military recruits to patrol the perimeter and gather intelligence about their mysterious foe. Eren and Mikasa have lived a relatively peaceful life behind the city's walls, but when a massive Titan appears, smashing the outer barrier and unleashing a wave of terror, their lives are brutally changed forever...",
+    description: "Humans fight for survival against giant humanoid Titans that threaten to destroy humanity.",
+    tags: ["Action", "Dark Fantasy", "Drama"],
+    episodes: 87,
+    year: 2013,
+    score: 9.1,
+    author: "Hajime Isayama",
+    studio: "WIT Studio",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 9,
+    image: "https://animeheaven.me/image.php?bmyla",
+    title: "Demon Slayer: Kimetsu no Yaiba",
+    slug: "demon-slayer-kimetsu no-yaiba",
+    synopsis: "Bloodthirsty demons lurk in the woods, and nobody dares to venture out at night, save for the demon slayer of legend. Surviving in this harsh world, young Tanjirou takes it upon himself to protect his family–until the day that everything is taken from him in a vicious slaughter. Now, all he has left is his sister, and she’s not even human anymore.",
+    description: "A boy becomes a demon slayer to save his sister and fight powerful demons.",
+    tags: ["Action", "Supernatural", "Adventure"],
+    episodes: 55,
+    year: 2019,
+    score: 8.7,
+    author: "Koyoharu Gotouge",
+    trailer: "https://youtu.be/VQGCKyvzIM4",
+    studio: "ufotable",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 10,
+    image: "https://animeheaven.me/image.php?f5q9b",
+    title: "Jujutsu Kaisen",
+    slug: "jujutsu-kaisen",
+    synopsis: "Although Yuji Itadori looks like your average teenager, his immense physical strength is something to behold! Every sports club wants him to join, but Itadori would rather hang out with the school outcasts in the Occult Research Club. One day, the club manages to get their hands on a sealed cursed object. Little do they know the terror they’ll unleash when they break the seal…",
+    description: "A student joins a secret organization that fights cursed spirits using powerful techniques.",
+    tags: ["Action", "Supernatural", "School", "Shounen", "Fantasy", "Demons", "Exorcists", "Urban Fantasy", "Dark Fantasy", "Martial Arts", "Manga"],
+    episodes: 47,
+    year: 2020,
+    score: 8.6,
+    author: "Gege Akutami",
+    trailer: "https://youtu.be/pkKu9hLT-t8",
+    studio: "MAPPA",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 11,
+    image: "https://animeheaven.me/image.php?eoyyk",
+    title: "Death Note",
+    slug: "death-note",
+    synopsis: "Have you ever felt like the world would be a better place if certain people weren’t around? Such grim daydreams might occur when watching the dismal daily news, but on one fateful day, Light Yagami finds that these daydreams can become reality. By pure happenstance, he comes across a black notebook entitled 'Death Note', whose text within states that whoever's name is written on its pages will die. With the aid of the death god Ryuk, Light takes it upon himself to rid the world of its corruption, ushering in a new era of purity one death at a time. But as Ryuk foretells, Light's actions will not go unchallenged...",
+    description: "A genius student discovers a notebook that allows him to kill anyone by writing their name.",
+    tags: ["Thriller", "Psychological", "Supernatural"],
+    episodes: 37,
+    year: 2006,
+    score: 9.0,
+    author: "Tsugumi Ohba",
+    studio: "Madhouse",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 12,
+    image: "https://animeheaven.me/image.php?cvito",
+    title: "My Hero Academia",
+    slug: "my-hero-academia",
+    synopsis: "Izuku has dreamt of being a hero all his life—a lofty goal for anyone, but especially challenging for a kid with no superpowers. That’s right, in a world where eighty percent of the population has some kind of super-powered “quirk,” Izuku was unlucky enough to be born completely normal. But that’s not going to stop him from enrolling in one of the world’s most prestigious hero academies. Now, the only thing standing between him and his first class is the academy’s formidable entrance exam—nothing a little private tutoring from the world’s mightiest hero can’t solve.",
+    description: "In a world where superpowers are common, a powerless boy dreams of becoming the greatest hero.",
+    tags: ["Action", "Superhero", "School"],
+    episodes: 150,
+    year: 2016,
+    score: 8.2,
+    author: "Kohei Horikoshi",
+    studio: "Bones",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 13,
+    image: "https://animeheaven.me/image.php?b5xgh",
+    title: "Chainsaw Man",
+    slug: "chainsaw-man",
+    synopsis: "Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as 'Chainsaw Man'—a man with a devil's heart.",
+    description: "A young man merges with a chainsaw devil and becomes a devil hunter in a violent world.",
+    tags: ["Action", "Horror", "Supernatural"],
+    episodes: 12,
+    year: 2022,
+    score: 8.5,
+    author: "Tatsuki Fujimoto",
+    trailer: "https://youtu.be/l96zmDlWCBk",
+    studio: "MAPPA",
+    rating: "R - 17+ (violence & profanity)"
+  },
+  {
+    id: 14,
+    image: "https://cx.animeheaven.me/image.php?6889t",
+    title: "Bleach",
+    slug: "bleach",
+    synopsis: "Fifteen-year-old Ichigo Kurosaki is a typical teen with fighting skills, two caring sisters and a special trait: he can see ghosts. However, when Ichigo and his family find themselves under attack by a huge beast, Ichigo discovers that there’s more to the supernatural world than the everyday specter. Vengeful spirits known as Hollows roam the world in search of devouring souls, and Shinigami – soul reapers – work tirelessly to defeat them and guide normal ghosts into a place called Soul Society. Ichigo valiantly fights the Hollow that threatens his sisters, but on the verge of defeat a Shinigami named Rukia gives him her powers, turning him into a Shinigami himself. Ichigo must now adjust to his new life of both vanquishing and saving souls for the sake of Soul Society.",
+    description: "A teenager gains Soul Reaper powers and protects humans from evil spirits.",
+    tags: ["Action", "Supernatural", "Adventure"],
+    episodes: 366,
+    year: 2004,
+    score: 8.3,
+    author: "Tite Kubo",
+    trailer: "https://youtu.be/WkNcS2mG_WU",
+    studio: "Pierrot",
+    rating: "PG-13 - Teens 13 or older"
+  },
+  {
+    id: 15,
+    image: "https://animeheaven.me/image.php?8e8n5",
+    title: "Tokyo Ghoul",
+    slug: "tokyo-ghoul",
+    synopsis: "In modern day Tokyo, society lives in fear of Ghouls: mysterious creatures who look exactly like humans -- yet hunger insatiably for their flesh. None of this matters to Ken Kaneki, a bookish and ordinary young man, until a dark and violent encounter turns him into the first ever Ghoul-human half breed. Trapped between two worlds, Ken must survive the violent conflicts of warring Ghoul factions, while attempting to learn more about Ghoul society, his newfound powers, and the fine line between man and monster.",
+    description: "A college student becomes half-ghoul and struggles to survive in a dark world of monsters.",
+    tags: ["Dark Fantasy", "Horror", "Psychological"],
+    episodes: 48,
+    year: 2014,
+    score: 7.9,
+    author: "Sui Ishida",
+    trailer: "https://youtu.be/vGuQeQsoRgU",
+    studio: "Pierrot",
+    rating: "R - 17+ (violence & profanity)"
+  }
+];

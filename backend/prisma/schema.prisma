@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Franchise {
+  id  Int @id @default(autoincrement())
+  name String @unique
+  animes  Anime[]
+}
+
+
+model Anime {
+  id          Int          @id @default(autoincrement())
+  title       String
+  japaneseTitle String?
+  synopsis    String?      @db.Text
+  description String?      @db.Text
+  slug        String
+
+  image       String
+  bannerImage String?
+  trailer     String?      // YouTube URL
+
+  episodes    Int?
+  duration    Int?         // minutes per episode
+
+  status      AnimeStatus
+  season      Season?
+  year        Int?
+
+  franchiseId Int?
+  franchise   Franchise? @relation(fields: [franchiseId], references: [id])
+
+  score       Float?
+
+  author      String?
+  studio      String?
+
+  isPopular   Boolean      @default(false)
+  isTrending  Boolean      @default(false)
+  isNew       Boolean      @default(false)
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  genres      AnimeGenre[]
+  tags   AnimeTag[]
+
+  @@index([title])
+  @@index([year])
+  @@index([score])
+  @@index([isPopular])
+  @@index([isTrending])
+  @@index([isNew])
+}
+
+model Tag {
+
+  id    Int      @id @default(autoincrement())
+  name  String   @unique
+  animes AnimeTag[]
+}
+
+model AnimeTag {
+  animeId Int
+  tagId   Int
+
+  anime Anime @relation(fields: [animeId], references: [id], onDelete: Cascade)
+  tag   Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([animeId, tagId])
+}
+
+model Genre {
+  id      Int          @id @default(autoincrement())
+  name    String       @unique
+  animes  AnimeGenre[]
+}
+
+model AnimeGenre {
+  animeId Int
+  genreId Int
+  anime   Anime @relation(fields: [animeId], references: [id], onDelete: Cascade)
+  genre   Genre @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  @@id([animeId, genreId])
+}
+
+
+enum AnimeStatus {
+  UPCOMING
+  AIRING
+  FINISHED
+}
+
+enum Season {
+  WINTER
+  SPRING
+  SUMMER
+  FALL
+}
+

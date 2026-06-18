@@ -100,8 +100,9 @@ class AuthController {
       };
 
       const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
+      
+      return res.json({ message: "Login successful", token });
 
-      res.json({ message: "Login successful", token });
     } catch (e) {
       return res.status(500).json({ error: e });
     }

@@ -3,11 +3,70 @@ import { useState } from "react";
 import Link from "next/link";
 import InputLabel from "@/components/InputLabel";
 import InputField from "@/components/InputField";
-import { seteuid } from "node:process";
+import { loginService } from "@/services/authService";
 
 export default function LoginForm() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  function validate(name: string, value: string) {
+    if (!value) return `The ${name} field is required`;
+    return "";
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: validate(name, value),
+    }));
+  }
+
+  async function handleSubmit(e: React.SubmitEvent) {
+    e.preventDefault();
+
+    const newErrors = {
+      username: validate("username", form.username),
+      password: validate("password", form.password),
+    };
+
+    setErrors(newErrors);
+
+    const hasError = Object.values(newErrors).some(Boolean);
+    if (hasError) return;
+
+    try {
+      setLoading(true);
+
+      const username = form.username;
+      const password = form.password;
+
+      const data = await loginService({ username, password });
+
+      localStorage.setItem("token", data.token);
+      console.log("Logged In", data);
+
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <div className="min-w-md max-w-md mx-auto py-8 px-8 rounded-lg">
@@ -24,7 +83,10 @@ export default function LoginForm() {
         Sign in to continue tracking your favorite anime.
       </p>
 
-      <form className="space-y-5" method="POST">
+      <form className="space-y-5" onSubmit={handleSubmit}>
+
+         
+
         <div>
           <InputLabel content="Username or Email" labelFor="username" />
           <InputField
@@ -33,9 +95,13 @@ export default function LoginForm() {
             name="username"
             placeholder="Enter your username or email"
             required={true}
-            onChange={(e) => setUsername(e.target.value)}
+            value={form.username}
+            onChange={handleChange}
+            hasError={errors.username ? true : false}
           />
         </div>
+
+        {errors.username && <p className="mb-5 text-red-500">{errors.username}</p>}
 
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -55,9 +121,13 @@ export default function LoginForm() {
             name="password"
             placeholder="Enter your password"
             required={true}
-            onChange={(e) => setPassword(e.target.value)}
+            value={form.password}
+            onChange={handleChange}
+            hasError={errors.password ? true : false}
           />
         </div>
+
+        {errors.password && <p className="mb-5 text-red-500">{errors.password}</p>}
 
         <div className="flex items-center gap-2">
           <input
@@ -73,9 +143,33 @@ export default function LoginForm() {
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-blue-500 py-2.5 cursor-pointer uppercase text-sm tracking-widest font-semibold transition hover:bg-blue-600 text-white"
+          className="w-full rounded-lg bg-blue-500 py-2.5 cursor-pointer uppercase text-sm tracking-widest font-semibold transition hover:bg-blue-600 text-white flex items-center justify-center"
+          disabled={loading}
         >
-          Sign In
+          {loading && (
+            <svg
+              className="mr-3 -ml-1 size-5 animate-spin text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          )}
+
+          {loading ? "Loading..." : "Sign In"}
         </button>
       </form>
 

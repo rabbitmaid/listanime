@@ -67,18 +67,18 @@ export default function AnimeInfo({ id }: AnimeInfoProps) {
               <span className="text-lg mt-2 px-5">{anime.author}</span>
             </div>
 
-             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
+            <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
               <h3 className="bg-cyan-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
                 Studio
               </h3>
-              <span className="text-lg mt-2 px-5">{anime.studio ?? '---'}</span>
+              <span className="text-lg mt-2 px-5">{anime.studio ?? "---"}</span>
             </div>
 
-             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
+            <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
               <h3 className="bg-red-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
                 Rating
               </h3>
-              <span className="text-lg mt-2 px-5">{anime.rating ?? '---'}</span>
+              <span className="text-lg mt-2 px-5">{anime.rating ?? "---"}</span>
             </div>
           </div>
 

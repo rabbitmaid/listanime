@@ -36,7 +36,6 @@ export async function generateMetadata(
     },
 
     twitter: {
-      card: anime.image,
       title: anime.title,
       description: anime.synopsis,
     },

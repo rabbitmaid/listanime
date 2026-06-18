@@ -10,7 +10,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="min-w-md max-w-md mx-auto border border-neutral-300 dark:border-neutral-800 py-8 px-8 rounded-lg">
+    <div className="min-w-md max-w-md mx-auto py-8 px-8 rounded-lg">
       <Link
         href="/"
         className="font-bold text-3xl block w-fit mx-auto mb-5 bg-blue-500 text-white py-2 px-3 rounded-lg"
@@ -24,7 +24,7 @@ export default function LoginForm() {
         Sign in to continue tracking your favorite anime.
       </p>
 
-      <form className="space-y-5">
+      <form className="space-y-5" method="POST">
         <div>
           <InputLabel content="Username or Email" labelFor="username" />
           <InputField

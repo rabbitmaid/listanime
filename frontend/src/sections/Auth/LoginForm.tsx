@@ -1,72 +1,13 @@
 "use client";
-import { useState } from "react";
+
+import { useActionState } from "react";
+import { login } from "@/actions/auth";
 import Link from "next/link";
 import InputLabel from "@/components/InputLabel";
 import InputField from "@/components/InputField";
-import { loginService } from "@/services/authService";
 
 export default function LoginForm() {
-  const [form, setForm] = useState({
-    username: "",
-    password: "",
-  });
-
-  const [errors, setErrors] = useState({
-    username: "",
-    password: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  function validate(name: string, value: string) {
-    if (!value) return `The ${name} field is required`;
-    return "";
-  }
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: validate(name, value),
-    }));
-  }
-
-  async function handleSubmit(e: React.SubmitEvent) {
-    e.preventDefault();
-
-    const newErrors = {
-      username: validate("username", form.username),
-      password: validate("password", form.password),
-    };
-
-    setErrors(newErrors);
-
-    const hasError = Object.values(newErrors).some(Boolean);
-    if (hasError) return;
-
-    try {
-      setLoading(true);
-
-      const username = form.username;
-      const password = form.password;
-
-      const data = await loginService({ username, password });
-
-      localStorage.setItem("token", data.token);
-      console.log("Logged In", data);
-
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const [state, action, pending] = useActionState(login, undefined);
 
   return (
     <div className="min-w-md max-w-md mx-auto py-8 px-8 rounded-lg">
@@ -83,10 +24,7 @@ export default function LoginForm() {
         Sign in to continue tracking your favorite anime.
       </p>
 
-      <form className="space-y-5" onSubmit={handleSubmit}>
-
-         
-
+      <form className="space-y-5" action={action}  autoComplete="on">
         <div>
           <InputLabel content="Username or Email" labelFor="username" />
           <InputField
@@ -95,13 +33,13 @@ export default function LoginForm() {
             name="username"
             placeholder="Enter your username or email"
             required={true}
-            value={form.username}
-            onChange={handleChange}
-            hasError={errors.username ? true : false}
+            autoComplete="username"
           />
         </div>
 
-        {errors.username && <p className="mb-5 text-red-500">{errors.username}</p>}
+        {state?.errors?.username && (
+          <p className="mb-5 text-red-500">{state.errors.username}</p>
+        )}
 
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -121,13 +59,19 @@ export default function LoginForm() {
             name="password"
             placeholder="Enter your password"
             required={true}
-            value={form.password}
-            onChange={handleChange}
-            hasError={errors.password ? true : false}
           />
         </div>
 
-        {errors.password && <p className="mb-5 text-red-500">{errors.password}</p>}
+        {state?.errors?.password && (
+          <div>
+            <p>Password must:</p>
+            <ul className="space-y-2">
+              {state.errors.password.map((error) => (
+                <li className="text-red-500" key={error}>- {error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="flex items-center gap-2">
           <input
@@ -144,9 +88,9 @@ export default function LoginForm() {
         <button
           type="submit"
           className="w-full rounded-lg bg-blue-500 py-2.5 cursor-pointer uppercase text-sm tracking-widest font-semibold transition hover:bg-blue-600 text-white flex items-center justify-center"
-          disabled={loading}
+          disabled={pending}
         >
-          {loading && (
+          {pending && (
             <svg
               className="mr-3 -ml-1 size-5 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +103,7 @@ export default function LoginForm() {
                 cy="12"
                 r="10"
                 stroke="currentColor"
-                stroke-width="4"
+                strokeWidth="4"
               ></circle>
               <path
                 className="opacity-75"
@@ -169,7 +113,7 @@ export default function LoginForm() {
             </svg>
           )}
 
-          {loading ? "Loading..." : "Sign In"}
+          {pending ? "Loading..." : "Sign In"}
         </button>
       </form>
 

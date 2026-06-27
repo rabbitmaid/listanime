@@ -40,42 +40,42 @@ export default function AnimeInfo({ id }: AnimeInfoProps) {
 
           <div className="flex flex-wrap gap-3 font-semibold mb-5 border-2 border-neutral-800 rounded-lg py-6 px-5">
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-blue-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-blue-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Score
               </h3>
               <span className="text-lg mt-2 px-5">{anime.score}</span>
             </div>
 
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-pink-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-pink-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Episodes
               </h3>
               <span className="text-lg mt-2 px-5">{anime.episodes}</span>
             </div>
 
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-orange-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-orange-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Year
               </h3>
               <span className="text-lg mt-2 px-5">{anime.year}</span>
             </div>
 
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-green-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-green-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Author
               </h3>
               <span className="text-lg mt-2 px-5">{anime.author}</span>
             </div>
 
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-cyan-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-cyan-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Studio
               </h3>
               <span className="text-lg mt-2 px-5">{anime.studio ?? "---"}</span>
             </div>
 
             <div className="w-fit flex flex-col items-center border-2 border-neutral-800 rounded pb-3">
-              <h3 className="bg-red-500 w-full text-white text-center uppercase rounded font-semibold text-sm px-5 py-1">
+              <h3 className="bg-red-500 w-full text-white text-center uppercase font-semibold text-sm px-5 py-1">
                 Rating
               </h3>
               <span className="text-lg mt-2 px-5">{anime.rating ?? "---"}</span>

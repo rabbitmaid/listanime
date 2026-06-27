@@ -33,7 +33,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/layout.ts", "next.config.js", "src/app/page.tsx"  ],
+, "src/app/layout.tsx", "next.config.js", "src/app/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]

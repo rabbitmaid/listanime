@@ -11,7 +11,7 @@ export default function InputLabel({
   return (
     <label
       htmlFor={labelFor}
-      className={`block uppercase text-sm font-semibold tracking-widest mb-2 ${className}`}
+      className={`block uppercase text-sm font-semibold tracking-widest cursor-pointer mb-2 ${className}`}
     >
       {content}
     </label>

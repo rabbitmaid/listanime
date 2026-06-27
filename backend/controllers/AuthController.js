@@ -4,10 +4,11 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
 
 
 class AuthController {
-  async register(req, res, next) {
+  async register(req, res) {
     try {
       const { username, email, password } = req.body;
 
@@ -47,7 +48,7 @@ class AuthController {
       };
 
       const token = jwt.sign(payload, JWT_SECRET, {
-        expiresIn: "1h",
+        expiresIn: JWT_EXPIRES_IN,
       });
 
       return res.status(201).json({
@@ -67,7 +68,7 @@ class AuthController {
     }
   }
 
-  async login(req, res, next) {
+  async login(req, res) {
     try {
       const { username, password } = req.body;
 
@@ -94,18 +95,34 @@ class AuthController {
       }
 
       const payload = {
-        id: user.id,
+        userId: user.id,
         username: user.username,
         role: user.role,
       };
 
-      const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
-      
+      const token = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+
+      // res.cookie("jwt", token, {
+      //    httpOnly: true
+      // });
+
       return res.json({ message: "Login successful", token });
 
     } catch (e) {
       return res.status(500).json({ error: e });
     }
+  }
+
+  async logout(req, res) {
+      res.cookie("jwt", "", {
+        httpOnly: true,
+        expires: new Date(0)
+      });
+      
+     return res.status(200).json({
+      status: 'success', 
+      message: 'Logged out successfully'
+     });
   }
 }
 

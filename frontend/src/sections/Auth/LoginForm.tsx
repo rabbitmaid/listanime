@@ -1,13 +1,24 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { login } from "@/actions/auth";
 import Link from "next/link";
 import InputLabel from "@/components/InputLabel";
 import InputField from "@/components/InputField";
+import { useRouter } from "next/navigation";
+import { useActionToast } from "@/hooks/useActionToast";
 
 export default function LoginForm() {
   const [state, action, pending] = useActionState(login, undefined);
+  const router = useRouter();
+
+  useActionToast(state);
+
+  useEffect(() => {
+    if (state?.success && state?.redirectTo) {
+      router.push(state.redirectTo);
+    }
+  }, [state, router]);
 
   return (
     <div className="min-w-md max-w-md mx-auto py-8 px-8 rounded-lg">

@@ -16,6 +16,8 @@ export async function login(state: FormState, formData: FormData) {
     // If any form fields are invalid, return early
     if (!validatedFields.success) {
         return {
+            success: false,
+            message: "Invalid form data",
             errors: validatedFields.error.flatten().fieldErrors,
         }
     }
@@ -29,14 +31,18 @@ export async function login(state: FormState, formData: FormData) {
         data = await loginService({ username, password });
     } catch (error) {
         return {
-            message: "Invalid username or password",
+            success: false,
+            message: 'Invalid username or password',
         };
     }
 
     await createSession(data.token);
 
-    redirect("/dashboard");
-
+    return {
+        success: true,
+        message: 'Authentication successful',
+        redirectTo: "/dashboard",
+    };
 }
 
 export async function logout() {

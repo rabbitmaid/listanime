@@ -4,6 +4,9 @@ A simple full-stack Anime listing platform built with Next.js (frontend), Node.j
 
 ---
 
+## Preview
+![AnimeList Screenshot](./screenshot.png)
+
 ## 🚀 Tech Stack
 
 **Frontend**
